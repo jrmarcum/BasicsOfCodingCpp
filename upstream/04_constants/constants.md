@@ -1,0 +1,10 @@
+##### Run Command:
+
+`$ go run constants.go`
+
+##### Results:
+
+`constant`
+`6e+11`
+`600000000000`
+`-0.28470407323754404`
