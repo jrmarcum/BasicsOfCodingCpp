@@ -4,7 +4,7 @@ ___
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -cflags -std=c++23 -- strings-and-runes.cpp`
+`$ zig run -lc++ -cflags -std=c++23 -- strings-and-chars.cpp`
 
 ##### Results:
 

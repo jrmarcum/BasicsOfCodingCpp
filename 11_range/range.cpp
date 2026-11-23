@@ -43,8 +43,8 @@ int main() {
     // Iterating over a string visits bytes (UTF-8 code units).
     // The first value is the byte index and the second the
     // character; for ASCII text this matches Go's runes.
-    std::string go = "go";
-    for (std::size_t i = 0; i < go.size(); i++) {
-        std::println("{} {}", i, static_cast<int>(go[i]));
+    std::string cpp = "cpp";
+    for (std::size_t i = 0; i < cpp.size(); i++) {
+        std::println("{} {}", i, static_cast<int>(cpp[i]));
     }
 }

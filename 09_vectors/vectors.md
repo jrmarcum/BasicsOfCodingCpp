@@ -1,10 +1,10 @@
-C++ has no built-in slice type. `std::vector` provides the growable, owning array and `std::span` provides the non-owning `slice[low:high]` view. A small `go_fmt` helper reproduces Go's `[a b c]` print layout.
+C++ has no built-in slice type. `std::vector` provides the growable, owning array and `std::span` provides the non-owning `slice[low:high]` view. A small `cpp_fmt` helper reproduces Go's `[a b c]` print layout.
 ___
 #### To run the program, make sure you are in the program's folder, then use the Run Command below.
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -cflags -std=c++23 -- slices.cpp`
+`$ zig run -lc++ -cflags -std=c++23 -- vectors.cpp`
 
 ##### Results:
 

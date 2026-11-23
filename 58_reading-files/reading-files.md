@@ -10,7 +10,7 @@ ___
 
 `$ echo "hello" > ./tmp/dat.txt`
 
-`$ echo "go" >> ./tmp/dat.txt`
+`$ echo "cpp" >> ./tmp/dat.txt`
 
 ___
 ##### Run Command:
@@ -20,8 +20,8 @@ ___
 ##### Results:
 
 `hello`
-`go`
+`cpp`
 `5 bytes: hello`
-`2 bytes @ 6: go`
-`2 bytes @ 6: go`
+`3 bytes @ 6: cpp`
+`3 bytes @ 6: cpp`
 `5 bytes: hello`

@@ -1,4 +1,4 @@
-`main` receives `argc`/`argv`; the program copies them into a `std::vector<std::string>` (index 0 is the program path) and a small `go_fmt` helper prints them in Go's `[a b c]` layout.
+`main` receives `argc`/`argv`; the program copies them into a `std::vector<std::string>` (index 0 is the program path) and a small `cpp_fmt` helper prints them in Go's `[a b c]` layout.
 ___
 #### To experiment with command-line arguments with `zig run`, put the program's arguments after a second `--`. Everything after it is passed to the program.
 ___

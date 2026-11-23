@@ -1,4 +1,4 @@
-Go's fixed-size arrays map to `std::array`. A small `go_fmt` helper reproduces Go's `[a b c]` print layout.
+Go's fixed-size arrays map to `std::array`. A small `cpp_fmt` helper reproduces Go's `[a b c]` print layout.
 ___
 #### To run the program, make sure you are in the program's folder, then use the Run Command below.
 ___

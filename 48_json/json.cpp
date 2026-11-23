@@ -137,7 +137,7 @@ Json parse(const std::string& text) { return Parser(text).parse(); }
 
 // Go prints decoded values as `map[k:v]` / `[a b]`; this helper
 // reproduces that layout.
-std::string go_fmt(const Json& j) {
+std::string cpp_fmt(const Json& j) {
     struct Visitor {
         std::string operator()(std::nullptr_t) const { return "<nil>"; }
         std::string operator()(bool b) const { return b ? "true" : "false"; }
@@ -145,13 +145,13 @@ std::string go_fmt(const Json& j) {
         std::string operator()(const std::string& s) const { return s; }
         std::string operator()(const Json::Array& a) const {
             std::string out = "[";
-            for (std::size_t i = 0; i < a.size(); i++) out += (i ? " " : "") + go_fmt(a[i]);
+            for (std::size_t i = 0; i < a.size(); i++) out += (i ? " " : "") + cpp_fmt(a[i]);
             return out + "]";
         }
         std::string operator()(const Json::Object& o) const {
             std::string out = "map[";
             for (bool first = true; const auto& [k, val] : o) {
-                out += (first ? "" : " ") + k + ":" + go_fmt(val);
+                out += (first ? "" : " ") + k + ":" + cpp_fmt(val);
                 first = false;
             }
             return out + "]";
@@ -226,7 +226,7 @@ int main() {
         std::println(stderr, "panic: {}", e.what());
         return 2;
     }
-    std::println("{}", go_fmt(dat));
+    std::println("{}", cpp_fmt(dat));
 
     // In order to use the values in the decoded object,
     // we'll need to extract them as their appropriate type.
@@ -255,7 +255,7 @@ int main() {
             res.fruits.push_back(std::get<std::string>(f.v));
         }
     }
-    std::println("{{{} {}}}", res.page, go_fmt(Json(to_array(res.fruits))));
+    std::println("{{{} {}}}", res.page, cpp_fmt(Json(to_array(res.fruits))));
     std::println("{}", res.fruits[0]);
 
     // In the examples above we always used strings as

@@ -8,7 +8,7 @@
 #include <vector>
 
 // Go prints slices as `[a b c]`; this helper reproduces that.
-std::string go_fmt(std::span<const std::string> v) {
+std::string cpp_fmt(std::span<const std::string> v) {
     std::string out = "[";
     for (bool first = true; const auto& e : v) {
         if (!first) out += ' ';
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
     // on an out-of-range index.)
     std::string arg = args.size() > 3 ? args[3] : "";
 
-    std::println("{}", go_fmt(argsWithProg));
-    std::println("{}", go_fmt(argsWithoutProg));
+    std::println("{}", cpp_fmt(argsWithProg));
+    std::println("{}", cpp_fmt(argsWithoutProg));
     std::println("{}", arg);
 }

@@ -80,6 +80,28 @@ BasicsOfCodingCpp/
     └── topic-name.md  — lesson explanation, run command, expected output
 ```
 
+### Lesson names vs. upstream
+
+Lesson **numbers** always match `upstream/` and the other language ports.
+Where the Go topic name is Go-specific, the C++ lesson uses the C++ term
+(folder and file names), and sample data uses `cpp` instead of `go`:
+
+| # | Upstream (Go) | C++ lesson |
+|---|---|---|
+| 09 | slices | vectors |
+| 15 | closures | lambdas |
+| 20 | interfaces | abstract-classes |
+| 22 | strings-and-runes | strings-and-chars |
+| 23 | struct-embedding | inheritance |
+| 26 | generics | templates |
+| 27 | goroutines | threads |
+| 28 | channels | condition-variables |
+| 29 | select | polling |
+| 35 | waitgroups | thread-joining |
+| 38 | recover | exceptions |
+| 43 | defer | raii |
+| 71 | context | stop-tokens |
+
 ## Lesson Conventions
 
 **Source (`topic-name.cpp`)**
@@ -99,14 +121,14 @@ BasicsOfCodingCpp/
   Results sections line up across languages. Go prints slices as
   `[a b c]` and maps as `map[k1:v1 k2:v2]`; C++23's built-in range formatting
   differs (`["a", "b"]`), so lessons that print containers define a small
-  local `go_fmt` helper (see `09_slices/slices.cpp`).
+  local `cpp_fmt` helper (see `09_vectors/vectors.cpp`).
 - Where output legitimately differs (PRNG values, timestamps, thread ordering,
   pointer addresses, platform paths), say so in the `.md`.
 
 **Docs (`topic-name.md`)**
 
 - Optional first paragraph (no heading) explaining the C++ mapping when it
-  is not obvious (see `09_slices/slices.md`). Then the standard block:
+  is not obvious (see `09_vectors/vectors.md`). Then the standard block:
 
   ```text
   ___
@@ -185,7 +207,7 @@ BasicsOfCodingCpp/
   `zig c++` compile as ground truth.
 - All 78 lessons compile with `-Wall -Wextra`; the one remaining warning
   (17_pointers, `zeroval` parameter set but unused) is the point of the lesson.
-- Lessons that print containers carry a local `go_fmt` helper (ranges →
+- Lessons that print containers carry a local `cpp_fmt` helper (ranges →
   `[a b c]`, `std::map` → `map[k:v]`). Lesson 26 copies the 09 version.
 - Concurrency lessons (28–37) inline the same `Channel<T>` class, trimmed per
   lesson. Capacity 0/1 behaves as a one-slot buffer, not a true unbuffered

@@ -10,7 +10,7 @@
 #include <vector>
 
 // Go prints slices as `[a b c]`; this helper reproduces that.
-std::string go_fmt(const std::vector<std::string>& v) {
+std::string cpp_fmt(const std::vector<std::string>& v) {
     std::string out = "[";
     for (bool first = true; const auto& e : v) {
         if (!first) out += ' ';
@@ -89,7 +89,7 @@ int main() {
     std::println("Repeat:     {}", Repeat("a", 5));
     std::println("Replace:    {}", Replace("foo", "o", "0", -1));
     std::println("Replace:    {}", Replace("foo", "o", "0", 1));
-    std::println("Split:      {}", go_fmt(Split("a-b-c-d-e", "-")));
+    std::println("Split:      {}", cpp_fmt(Split("a-b-c-d-e", "-")));
     std::println("ToLower:    {}", ToLower("TEST"));
     std::println("ToUpper:    {}", ToUpper("test"));
 

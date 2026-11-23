@@ -4,7 +4,7 @@ ___
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -cflags -std=c++23 -- struct-embedding.cpp`
+`$ zig run -lc++ -cflags -std=c++23 -- inheritance.cpp`
 
 ##### Results:
 

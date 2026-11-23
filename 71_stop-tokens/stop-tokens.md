@@ -4,9 +4,9 @@ ___
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -lws2_32 -cflags -std=c++23 -- context.cpp &` (Windows)
+`$ zig run -lc++ -lws2_32 -cflags -std=c++23 -- stop-tokens.cpp &` (Windows)
 
-`$ zig run -lc++ -cflags -std=c++23 -- context.cpp &` (Unix)
+`$ zig run -lc++ -cflags -std=c++23 -- stop-tokens.cpp &` (Unix)
 
 `$ curl -m 2 localhost:8090/hello`
 

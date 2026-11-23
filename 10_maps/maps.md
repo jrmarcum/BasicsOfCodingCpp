@@ -1,4 +1,4 @@
-`std::map` is an ordered map, so iteration and printing are sorted by key exactly like Go's printed maps. A small `go_fmt` helper reproduces Go's `map[k:v]` layout.
+`std::map` is an ordered map, so iteration and printing are sorted by key exactly like Go's printed maps. A small `cpp_fmt` helper reproduces Go's `map[k:v]` layout.
 ___
 #### To run the program, make sure you are in the program's folder, then use the Run Command below.
 ___

@@ -4,7 +4,7 @@ ___
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -cflags -std=c++23 -- waitgroups.cpp`
+`$ zig run -lc++ -cflags -std=c++23 -- thread-joining.cpp`
 
 ##### Results:
 

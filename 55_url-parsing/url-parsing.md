@@ -1,4 +1,4 @@
-C++ has no URL type in its standard library, so the program uses a small hand-written parser over `std::string_view`. The Go `map[k:[v]]` layout is reproduced by a `go_fmt` helper.
+C++ has no URL type in its standard library, so the program uses a small hand-written parser over `std::string_view`. The Go `map[k:[v]]` layout is reproduced by a `cpp_fmt` helper.
 ___
 #### To run the program, make sure you are in the program's folder, then use the Run Command below.
 ___

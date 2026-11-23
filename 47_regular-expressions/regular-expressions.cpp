@@ -12,12 +12,12 @@
 
 // Go prints slices as `[a b c]`, recursing into nested ones.
 template <typename T>
-std::string go_fmt(const T& v) {
+std::string cpp_fmt(const T& v) {
     if constexpr (std::ranges::range<T> && !std::is_convertible_v<T, std::string_view>) {
         std::string out = "[";
         for (bool first = true; const auto& e : v) {
             if (!first) out += ' ';
-            out += go_fmt(e);
+            out += cpp_fmt(e);
             first = false;
         }
         return out + "]";
@@ -121,31 +121,31 @@ int main() {
     // This also finds the first match but returns the
     // start and end indexes for the match instead of the
     // matching text.
-    std::println("{}", go_fmt(FindStringIndex(r, "peach punch")));
+    std::println("{}", cpp_fmt(FindStringIndex(r, "peach punch")));
 
     // The submatch variants include information about
     // both the whole-pattern matches and the submatches
     // within those matches. For example this will return
     // information for both `p([a-z]+)ch` and `([a-z]+)`.
-    std::println("{}", go_fmt(FindStringSubmatch(r, "peach punch")));
+    std::println("{}", cpp_fmt(FindStringSubmatch(r, "peach punch")));
 
     // Similarly this will return information about the
     // indexes of matches and submatches.
-    std::println("{}", go_fmt(FindStringSubmatchIndex(r, "peach punch")));
+    std::println("{}", cpp_fmt(FindStringSubmatchIndex(r, "peach punch")));
 
     // The `All` variants of these functions apply to all
     // matches in the input, not just the first. For
     // example to find all matches for a regexp.
-    std::println("{}", go_fmt(FindAllString(r, "peach punch pinch", -1)));
+    std::println("{}", cpp_fmt(FindAllString(r, "peach punch pinch", -1)));
 
     // These `All` variants are available for the other
     // functions we saw above as well.
-    std::println("{}", go_fmt(FindAllStringSubmatchIndex(r, "peach punch pinch", -1)));
+    std::println("{}", cpp_fmt(FindAllStringSubmatchIndex(r, "peach punch pinch", -1)));
 
     // Providing a non-negative integer as the last
     // argument to these functions will limit the number
     // of matches.
-    std::println("{}", go_fmt(FindAllString(r, "peach punch pinch", 2)));
+    std::println("{}", cpp_fmt(FindAllString(r, "peach punch pinch", 2)));
 
     // C++ matches directly on any character range (here a
     // `std::vector<char>`), so there's no separate byte-slice API.

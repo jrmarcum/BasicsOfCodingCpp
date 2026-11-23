@@ -25,7 +25,7 @@ ___
 ##### Results:
 
 `hello`
-`go`
+`cpp`
 ___
 ##### Run Command:
 

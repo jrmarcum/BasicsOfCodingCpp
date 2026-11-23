@@ -4,7 +4,7 @@ ___
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -cflags -std=c++23 -- channels.cpp`
+`$ zig run -lc++ -cflags -std=c++23 -- condition-variables.cpp`
 
 ##### Results:
 

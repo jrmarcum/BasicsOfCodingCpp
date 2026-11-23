@@ -9,7 +9,7 @@
 // formatting gives `{"k1": 7, "k2": 13}`, so this helper
 // reproduces Go's layout.
 template <typename K, typename V>
-std::string go_fmt(const std::map<K, V>& m) {
+std::string cpp_fmt(const std::map<K, V>& m) {
     std::string out = "map[";
     for (bool first = true; const auto& [k, v] : m) {
         if (!first) out += ' ';
@@ -30,8 +30,8 @@ int main() {
     m["k2"] = 13;
 
     // Printing a map shows all of its key/value pairs
-    // (through our `go_fmt` helper).
-    std::println("map: {}", go_fmt(m));
+    // (through our `cpp_fmt` helper).
+    std::println("map: {}", cpp_fmt(m));
 
     // Get a value for a key with `name[key]`.
     int v1 = m["k1"];
@@ -42,7 +42,7 @@ int main() {
 
     // `erase` removes key/value pairs from a map.
     m.erase("k2");
-    std::println("map: {}", go_fmt(m));
+    std::println("map: {}", cpp_fmt(m));
 
     // To tell whether a key is present (and so disambiguate
     // between missing keys and keys with zero values like
@@ -54,5 +54,5 @@ int main() {
     // You can also declare and initialize a new map in
     // the same line with this syntax.
     std::map<std::string, int> n = {{"foo", 1}, {"bar", 2}};
-    std::println("map: {}", go_fmt(n));
+    std::println("map: {}", cpp_fmt(n));
 }

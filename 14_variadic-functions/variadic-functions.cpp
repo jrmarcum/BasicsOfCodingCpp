@@ -7,7 +7,7 @@
 #include <vector>
 
 // Go prints slices as `[a b c]`; this helper reproduces it.
-std::string go_fmt(std::span<const int> v) {
+std::string cpp_fmt(std::span<const int> v) {
     std::string out = "[";
     for (bool first = true; int e : v) {
         if (!first) out += ' ';
@@ -20,7 +20,7 @@ std::string go_fmt(std::span<const int> v) {
 // Here's a function that takes a span of `int`s: the shared
 // implementation used by both calling styles below.
 void sum(std::span<const int> nums) {
-    std::print("{} ", go_fmt(nums));
+    std::print("{} ", cpp_fmt(nums));
     int total = 0;
     for (int num : nums) {
         total += num;

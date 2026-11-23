@@ -20,7 +20,7 @@
 using Strings = std::vector<std::string>;
 
 // Go prints slices as `[a b c]`; this helper reproduces that.
-std::string go_fmt(const Strings& v) {
+std::string cpp_fmt(const Strings& v) {
     std::string out = "[";
     for (bool first = true; const auto& e : v) {
         if (!first) out += ' ';
@@ -114,12 +114,12 @@ int main() {
         return v.starts_with("p");
     }));
 
-    std::println("{}", go_fmt(Filter(strs, [](const std::string& v) {
+    std::println("{}", cpp_fmt(Filter(strs, [](const std::string& v) {
         return v.contains("e");
     })));
 
     // The above examples all used anonymous functions (lambdas),
     // but you can also use named functions of the correct
     // type.
-    std::println("{}", go_fmt(Map(strs, ToUpper)));
+    std::println("{}", cpp_fmt(Map(strs, ToUpper)));
 }

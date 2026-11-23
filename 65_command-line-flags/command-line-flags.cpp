@@ -120,7 +120,7 @@ public:
 };
 
 // Go prints slices as `[a b c]`; this helper reproduces that.
-std::string go_fmt(const std::vector<std::string>& v) {
+std::string cpp_fmt(const std::vector<std::string>& v) {
     std::string out = "[";
     for (bool first = true; const auto& e : v) {
         if (!first) out += ' ';
@@ -166,5 +166,5 @@ int main(int argc, char* argv[]) {
     std::println("numb: {}", numb);
     std::println("fork: {}", fork);
     std::println("svar: {}", svar);
-    std::println("tail: {}", go_fmt(flags.args()));
+    std::println("tail: {}", cpp_fmt(flags.args()));
 }

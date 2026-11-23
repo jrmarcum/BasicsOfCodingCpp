@@ -14,7 +14,8 @@ ___
 `b -> banana`
 `key: a`
 `key: b`
-`0 103`
-`1 111`
+`0 99`
+`1 112`
+`2 112`
 ___
 #### Note: Go's map iteration order is non-deterministic; `std::map` always iterates in sorted key order, so the output here is deterministic.

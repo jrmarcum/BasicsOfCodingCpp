@@ -4,7 +4,7 @@ ___
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -cflags -std=c++23 -- closures.cpp`
+`$ zig run -lc++ -cflags -std=c++23 -- lambdas.cpp`
 
 ##### Results:
 

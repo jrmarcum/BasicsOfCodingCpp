@@ -97,7 +97,7 @@ std::map<std::string, std::vector<std::string>> parse_query(std::string_view q) 
 }
 
 // Go prints a `url.Values` map as `map[k:[v]]`.
-std::string go_fmt(const std::map<std::string, std::vector<std::string>>& m) {
+std::string cpp_fmt(const std::map<std::string, std::vector<std::string>>& m) {
     std::string out = "map[";
     for (bool firstKey = true; const auto& [k, vs] : m) {
         if (!firstKey) out += ' ';
@@ -156,6 +156,6 @@ int main() {
     // if you only want the first value.
     std::println("{}", u.raw_query);
     auto m = parse_query(u.raw_query);
-    std::println("{}", go_fmt(m));
+    std::println("{}", cpp_fmt(m));
     std::println("{}", m["k"][0]);
 }

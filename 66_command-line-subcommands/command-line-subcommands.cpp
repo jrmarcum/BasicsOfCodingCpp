@@ -122,7 +122,7 @@ public:
 };
 
 // Go prints slices as `[a b c]`; this helper reproduces that.
-std::string go_fmt(const std::vector<std::string>& v) {
+std::string cpp_fmt(const std::vector<std::string>& v) {
     std::string out = "[";
     for (bool first = true; const auto& e : v) {
         if (!first) out += ' ';
@@ -165,12 +165,12 @@ int main(int argc, char* argv[]) {
         std::println("subcommand 'foo'");
         std::println("  enable: {}", fooEnable);
         std::println("  name: {}", fooName);
-        std::println("  tail: {}", go_fmt(fooCmd.args()));
+        std::println("  tail: {}", cpp_fmt(fooCmd.args()));
     } else if (args[1] == "bar") {
         barCmd.parse(rest);
         std::println("subcommand 'bar'");
         std::println("  level: {}", barLevel);
-        std::println("  tail: {}", go_fmt(barCmd.args()));
+        std::println("  tail: {}", cpp_fmt(barCmd.args()));
     } else {
         std::println("expected 'foo' or 'bar' subcommands");
         std::exit(1);

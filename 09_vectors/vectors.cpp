@@ -10,12 +10,12 @@
 // directly (as `["a", "b", "c"]`), so this small helper
 // reproduces Go's layout, recursing into nested ranges.
 template <typename T>
-std::string go_fmt(const T& v) {
+std::string cpp_fmt(const T& v) {
     if constexpr (std::ranges::range<T> && !std::is_convertible_v<T, std::string_view>) {
         std::string out = "[";
         for (bool first = true; const auto& e : v) {
             if (!first) out += ' ';
-            out += go_fmt(e);
+            out += cpp_fmt(e);
             first = false;
         }
         return out + "]";
@@ -29,13 +29,13 @@ int main() {
     // length to the constructor. Here we make a vector of
     // `std::string`s of length `3` (initially empty strings).
     std::vector<std::string> s(3);
-    std::println("emp: {}", go_fmt(s));
+    std::println("emp: {}", cpp_fmt(s));
 
     // We can set and get just like with arrays.
     s[0] = "a";
     s[1] = "b";
     s[2] = "c";
-    std::println("set: {}", go_fmt(s));
+    std::println("set: {}", cpp_fmt(s));
     std::println("get: {}", s[2]);
 
     // `size()` returns the length of the vector.
@@ -46,32 +46,32 @@ int main() {
     // modified in place.
     s.push_back("d");
     s.insert(s.end(), {"e", "f"});
-    std::println("apd: {}", go_fmt(s));
+    std::println("apd: {}", cpp_fmt(s));
 
     // Copying a vector is a plain assignment: the copy owns
     // its own elements.
     std::vector<std::string> c = s;
-    std::println("cpy: {}", go_fmt(c));
+    std::println("cpy: {}", cpp_fmt(c));
 
     // `std::span` gives a view of part of a vector, like
     // Go's `slice[low:high]`. `subspan(offset, count)`
     // gets `s[2]`, `s[3]`, and `s[4]`.
     std::span<std::string> all(s);
     auto l = all.subspan(2, 3);
-    std::println("sl1: {}", go_fmt(l));
+    std::println("sl1: {}", cpp_fmt(l));
 
     // This slices up to (but excluding) `s[5]`.
     l = all.first(5);
-    std::println("sl2: {}", go_fmt(l));
+    std::println("sl2: {}", cpp_fmt(l));
 
     // And this slices up from (and including) `s[2]`.
     l = all.subspan(2);
-    std::println("sl3: {}", go_fmt(l));
+    std::println("sl3: {}", cpp_fmt(l));
 
     // We can declare and initialize a vector in a single
     // line as well.
     std::vector<std::string> t = {"g", "h", "i"};
-    std::println("dcl: {}", go_fmt(t));
+    std::println("dcl: {}", cpp_fmt(t));
 
     // Vectors can be composed into multi-dimensional data
     // structures. The length of the inner vectors can vary.
@@ -83,5 +83,5 @@ int main() {
             twoD[i][j] = i + j;
         }
     }
-    std::println("2d:  {}", go_fmt(twoD));
+    std::println("2d:  {}", cpp_fmt(twoD));
 }

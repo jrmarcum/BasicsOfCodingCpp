@@ -1,4 +1,4 @@
-Go's `time` maps to `<chrono>`: `system_clock::time_point` for instants and `duration` for intervals. `go_time`, `go_duration` and `go_float` helpers print values in Go's layout. Times are printed in UTC.
+Go's `time` maps to `<chrono>`: `system_clock::time_point` for instants and `duration` for intervals. `cpp_time`, `cpp_duration` and `cpp_float` helpers print values in Go's layout. Times are printed in UTC.
 ___
 #### To run the program, make sure you are in the program's folder, then use the Run Command below.
 ___

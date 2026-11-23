@@ -22,7 +22,7 @@ int main() {
     // `std::jthread` with the function and its arguments.
     // The new thread executes concurrently with the calling
     // one.
-    std::jthread g1(f, std::string("goroutine"));
+    std::jthread g1(f, std::string("thread"));
 
     // You can also start a thread for an anonymous
     // function call (a lambda).

@@ -4,7 +4,7 @@ ___
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -cflags -std=c++23 -- select.cpp`
+`$ zig run -lc++ -cflags -std=c++23 -- polling.cpp`
 
 ##### Results:
 

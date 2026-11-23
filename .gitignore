@@ -8,7 +8,7 @@ command-line-flags
 command-line-subcommands
 http-client
 http-server
-context
+stop-tokens
 tcp-server
 
 # Temporary files created by lesson examples (lessons 58-60)

@@ -15,7 +15,7 @@
 
 int main() {
     // Strings, which can be added together with `+`.
-    std::println("{}", std::string("go") + "lang");
+    std::println("{}", std::string("cpp") + "lang");
 
     // Integers and floats.
     std::println("1+1 = {}", 1 + 1);

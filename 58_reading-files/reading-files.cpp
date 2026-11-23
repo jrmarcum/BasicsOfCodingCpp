@@ -48,21 +48,21 @@ int main() {
         // and `read` from there.
         f.seekg(6, std::ios::beg);
         auto o2 = f.tellg();
-        std::string b2(2, '\0');
-        f.read(b2.data(), 2);
+        std::string b2(3, '\0');
+        f.read(b2.data(), 3);
         auto n2 = f.gcount();
         check(f, "read");
         std::println("{} bytes @ {}: {}", n2, static_cast<int64_t>(o2), b2.substr(0, n2));
 
         // A read loop like the one above can be made more
         // robust by insisting on a minimum count: here we
-        // check that all 2 requested bytes arrived (the
+        // check that all 3 requested bytes arrived (the
         // equivalent of Go's `io.ReadAtLeast`).
         f.seekg(6, std::ios::beg);
         auto o3 = f.tellg();
-        std::string b3(2, '\0');
-        f.read(b3.data(), 2);
-        if (f.gcount() < 2) throw std::runtime_error("unexpected EOF");
+        std::string b3(3, '\0');
+        f.read(b3.data(), 3);
+        if (f.gcount() < 3) throw std::runtime_error("unexpected EOF");
         std::println("{} bytes @ {}: {}", f.gcount(), static_cast<int64_t>(o3), b3);
 
         // There is no built-in rewind, but `clear()` followed

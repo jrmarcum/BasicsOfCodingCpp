@@ -6,7 +6,7 @@ ___
 
 `$ mkdir tmp`
 
-`$ zig run -lc++ -cflags -std=c++23 -- defer.cpp`
+`$ zig run -lc++ -cflags -std=c++23 -- raii.cpp`
 
 ##### Results:
 

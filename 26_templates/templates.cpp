@@ -11,12 +11,12 @@
 // Go prints slices as `[a b c]`; this small helper
 // reproduces that layout.
 template <typename T>
-std::string go_fmt(const T& v) {
+std::string cpp_fmt(const T& v) {
     if constexpr (std::ranges::range<T> && !std::is_convertible_v<T, std::string_view>) {
         std::string out = "[";
         for (bool first = true; const auto& e : v) {
             if (!first) out += ' ';
-            out += go_fmt(e);
+            out += cpp_fmt(e);
             first = false;
         }
         return out + "]";
@@ -95,5 +95,5 @@ int main() {
     lst.Push(10);
     lst.Push(13);
     lst.Push(23);
-    std::println("list: {}", go_fmt(lst.AllElements()));
+    std::println("list: {}", cpp_fmt(lst.AllElements()));
 }

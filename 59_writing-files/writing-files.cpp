@@ -19,7 +19,7 @@ int main() {
     try {
         // To start, here's how to dump a string (or just
         // bytes) into a file.
-        std::string_view d1 = "hello\ngo\n";
+        std::string_view d1 = "hello\ncpp\n";
         {
             std::ofstream out("./tmp/dat1.txt", std::ios::binary);
             check(out, "create ./tmp/dat1.txt");
