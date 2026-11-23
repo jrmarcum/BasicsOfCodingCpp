@@ -16,9 +16,9 @@ for program logic and expected output. The sibling **Basics of Coding C**
 project (`../BasicsOfCodingC`) was used as a secondary reference for how
 Go-only features were mapped onto a C-family language.
 
-- Upstream Go repo: https://github.com/jrmarcum/BasicsOfCodingGo
-- Sibling C repo: https://github.com/jrmarcum/BasicsOfCodingC
-- Original Go by Example: https://github.com/mmcgrana/gobyexample
+- Upstream Go repo: <https://github.com/jrmarcum/BasicsOfCodingGo>
+- Sibling C repo: <https://github.com/jrmarcum/BasicsOfCodingC>
+- Original Go by Example: <https://github.com/mmcgrana/gobyexample>
 
 ## Licensing Summary
 
@@ -37,23 +37,27 @@ targeting **C++23**. This is the same single cross-platform toolchain the C
 project uses. Verified with Zig 0.17.1 (Clang 22).
 
 Compile and run pattern (`-cflags ... --` is how `zig run` accepts `-std`):
-```
+
+```text
 $ zig run -lc++ -cflags -std=c++23 -- filename.cpp
 ```
 
 Programs that take command-line arguments (lessons 64–66) put them after a
 second `--`:
-```
+
+```text
 $ zig run -lc++ -cflags -std=c++23 -- command-line-arguments.cpp -- a b c d
 ```
 
 Build a standalone binary:
-```
+
+```text
 $ zig c++ -std=c++23 filename.cpp -o filename
 ```
 
 Extra link flags:
-```
+
+```text
 $ zig run -lc++ -lws2_32 -cflags -std=c++23 -- file.cpp   # Windows sockets (69–72)
 ```
 
@@ -62,12 +66,13 @@ minute); later runs take a few seconds.
 
 ## Project Structure
 
-```
+```text
 BasicsOfCodingCpp/
 ├── CLAUDE.md          — this file
 ├── LICENSE            — CC0 (Jon Marcum's original contributions)
 ├── NOTICE             — attribution for CC BY 3.0 derived content
 ├── README.md          — overview, C++ language primer, attribution, license
+├── .rumdl.toml        — Markdown lint config (rumdl)
 ├── upstream/          — reference copy of the BasicsOfCodingGo lessons
 │   └── ##_topic-name/ — Go source and .md for each lesson
 └── ##_topic-name/     — 78 lessons, 01_hello-world through 78_sha256-hashes
@@ -78,6 +83,7 @@ BasicsOfCodingCpp/
 ## Lesson Conventions
 
 **Source (`topic-name.cpp`)**
+
 - One self-contained file per lesson; standard library only (no third-party
   libraries). Each lesson must compile cleanly with the command above.
 - Follow the upstream Go program's structure, ordering, and comments: keep
@@ -98,9 +104,11 @@ BasicsOfCodingCpp/
   pointer addresses, platform paths), say so in the `.md`.
 
 **Docs (`topic-name.md`)**
+
 - Optional first paragraph (no heading) explaining the C++ mapping when it
   is not obvious (see `09_slices/slices.md`). Then the standard block:
-  ```
+
+  ```text
   ___
   #### To run the program, make sure you are in the program's folder, then use the Run Command below.
   ___
@@ -113,8 +121,10 @@ BasicsOfCodingCpp/
   `line 1 of actual output`
   `line 2 of actual output`
   ```
+
 - Each output line is its own backtick-wrapped line. Results are the
   **actual** output of running the program, not copied from Go.
+
 - Keep any extra multi-step sections from the upstream `.md` (build a
   binary, run with args, etc.), adapted to the zig commands.
 
@@ -204,7 +214,19 @@ BasicsOfCodingCpp/
 - Lesson 77: `zig run` does not print Go's `exit status 3`; the `.md` builds
   the binary and checks `$?` / `$LASTEXITCODE` / `%ERRORLEVEL%`.
 - Lesson 42 exits via an uncaught exception (libc++abi terminate message).
-- Unix code paths (`#else` branches for sockets, env, exec, signals) were
-  written but only Windows was tested; Unix builds may need `-lpthread`.
+- All 78 lessons were validated on 2026-11-23 on both Windows 11 and WSL2
+  Ubuntu 26.04 with Zig 0.17.1 (compile with `-Wall -Wextra`, run, compare
+  against the `.md` Results; servers 70–72 exercised with curl / a socket
+  client). No `-lpthread` is needed under `zig c++` on Linux. On Linux, lesson
+  76 was verified with real `SIGINT`/`SIGTERM`; on Windows only that it starts
+  and waits.
 - When testing servers (70–72) from parallel sessions, stop them by PID, never
   by image name (`zig.exe`).
+
+## Markdown Linting
+
+Markdown is linted with rumdl (VS Code extension `rvben.rumdl`), configured by
+`.rumdl.toml`. The lesson `.md` house style (`___` separators,
+`##### Run Command:` / `##### Results:` headings, verbatim output in code spans)
+is intentional; disable a conflicting rule in `.rumdl.toml` rather than
+reformatting lessons. `upstream/` is excluded from linting.

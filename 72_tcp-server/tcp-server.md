@@ -4,10 +4,13 @@ ___
 ___
 ##### Run Command:
 
-`$ zig run -lc++ -lws2_32 -cflags -std=c++23 -- tcp-server.cpp &`
+`$ zig run -lc++ -lws2_32 -cflags -std=c++23 -- tcp-server.cpp &` (Windows)
+
+`$ zig run -lc++ -cflags -std=c++23 -- tcp-server.cpp &` (Unix)
+
 `$ echo "Hello from netcat" | nc localhost 8090`
 
-On Linux/macOS drop `-lws2_32`. On Windows without netcat, use a PowerShell TCP client (the server must still be running; stop it afterwards with `Stop-Process` or Ctrl+C):
+On Windows without netcat, use a PowerShell TCP client (the server must still be running; stop it afterwards with `Stop-Process` or Ctrl+C):
 
 `PS> $c=New-Object Net.Sockets.TcpClient("localhost",8090); $s=$c.GetStream(); $b=[Text.Encoding]::ASCII.GetBytes("Hello from netcat`n"); $s.Write($b,0,$b.Length); (New-Object IO.StreamReader($s)).ReadLine(); $c.Close()`
 

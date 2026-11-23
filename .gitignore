@@ -18,3 +18,6 @@ tmp/
 # Zig compiler cache
 .zig-cache/
 zig-out/
+
+# rumdl Markdown linter cache
+.rumdl_cache/

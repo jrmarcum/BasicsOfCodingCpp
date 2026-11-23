@@ -71,6 +71,7 @@ Any other C++23 compiler (g++ 14+, clang++ 18+, MSVC 19.40+) should also work, e
 
 ## Comments
 Comments are used to document what your code does so that others can understand it when reviewing your code.
+
 ```cpp
 // This is a single-line comment
 /* This is a
@@ -78,6 +79,7 @@ Comments are used to document what your code does so that others can understand 
 ```
 
 ## Keywords
+
 |              |              |              |               |              |
 |:------------:|:------------:|:------------:|:-------------:|:------------:|
 | auto         | bool         | break        | case          | catch        |
@@ -115,6 +117,7 @@ Comments are used to document what your code does so that others can understand 
 
 ## Operators
 > ### Arithmetic Operators
+>
 > |        |                                                    |
 > |:------:|:---------------------------------------------------|
 > | **+**  | add one number to another                          |
@@ -124,7 +127,9 @@ Comments are used to document what your code does so that others can understand 
 > | **%**  | remainder of dividing one number by another        |
 > | **++** | increase the value of a variable by 1              |
 > | **--** | decrease the value of a variable by 1              |
+>
 > ### Comparison Operators
+>
 > |         |                                                         |
 > |:-------:|:--------------------------------------------------------|
 > | **==**  | check if a variable is equal to another                 |
@@ -134,13 +139,17 @@ Comments are used to document what your code does so that others can understand 
 > | **>=**  | check if a variable is greater than or equal to another |
 > | **<=**  | check if a variable is less than or equal to another    |
 > | **<=>** | three-way comparison (less, equal, or greater)          |
+>
 > ### Logical Operators
+>
 > |        |                                                 |
 > |:------:|:------------------------------------------------|
 > | **&&** | returns true if both statements are true        |
 > | **\|\|** | returns true if one of the statements is true |
 > | **!**  | reverse the result of a true or false statement |
+>
 > ### Assignment Operators
+>
 > |         |                                                                        |
 > |:-------:|:-----------------------------------------------------------------------|
 > | **=**   | assign a value to a variable                                           |
@@ -153,15 +162,26 @@ Comments are used to document what your code does so that others can understand 
 ## Statements
 A statement is an instruction that a program can execute.
 > ### Conditional Statements
+>
+> | | |
+> |:------------:|:---------------------------------------------------------------------------------|
 > | **if**        | performs a statement if a condition is met                                           |
 > | **if-else**   | performs a statement if a condition is met, otherwise performs the else statement    |
 > | **switch**    | selects one of many code blocks to execute based on an expression                   |
+>
 > ### Iterative Statements
+>
+> | | |
+> |:------------:|:---------------------------------------------------------------------------------|
 > | **for**       | loop with initial, condition, and increment expressions                 |
 > | **range-for** | `for (auto& x : container)` iterates over every element                 |
 > | **while**     | loop that continues while a condition is true                          |
 > | **do-while**  | executes the body at least once, then continues while condition is true |
+>
 > ### Transfer Statements
+>
+> | | |
+> |:------------:|:---------------------------------------------------------------------------------|
 > | **break**     | terminates the enclosing loop or switch statement               |
 > | **continue**  | skips the rest of the loop body and continues to next iteration |
 > | **return**    | returns a value from a function                                 |
