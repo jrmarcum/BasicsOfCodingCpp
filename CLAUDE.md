@@ -231,17 +231,21 @@ Where the Go topic name is Go-specific, the C++ lesson uses the C++ term
 - Lessons 74/75 use `cmd /c dir`, `date /t`, `findstr` on Windows and the Go
   commands on Unix. Windows `_execvp` spawns a new process and exits rather
   than truly replacing the current one.
-- Lesson 76: a real Ctrl+C was not automatable on Windows; the handler was
-  verified via `std::raise(SIGINT)`.
+- Lesson 76: to send a real Ctrl+C on Windows from a script, the sender must
+  re-enable Ctrl+C (`SetConsoleCtrlHandler(NULL, FALSE)`) before launching
+  the program, because hosted shells often start with it disabled and children
+  inherit that, then protect itself with its own console handler and call
+  `GenerateConsoleCtrlEvent(CTRL_C_EVENT, 0)`.
 - Lesson 77: `zig run` does not print Go's `exit status 3`; the `.md` builds
   the binary and checks `$?` / `$LASTEXITCODE` / `%ERRORLEVEL%`.
 - Lesson 42 exits via an uncaught exception (libc++abi terminate message).
 - All 78 lessons were validated on 2026-11-23 on both Windows 11 and WSL2
   Ubuntu 26.04 with Zig 0.17.1 (compile with `-Wall -Wextra`, run, compare
   against the `.md` Results; servers 70–72 exercised with curl / a socket
-  client). No `-lpthread` is needed under `zig c++` on Linux. On Linux, lesson
-  76 was verified with real `SIGINT`/`SIGTERM`; on Windows only that it starts
-  and waits.
+  client). No `-lpthread` is needed under `zig c++` on Linux. Lesson 76 was
+  verified with a real Ctrl+C on Windows and real `SIGINT`/`SIGTERM` on Linux.
+  Re-validated after the lesson renames: 90/90 checks on Windows, 91/91 on
+  Linux.
 - When testing servers (70–72) from parallel sessions, stop them by PID, never
   by image name (`zig.exe`).
 
